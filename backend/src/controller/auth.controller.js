@@ -10,15 +10,15 @@ export const authCallback = async (req, res, next) => {
       if (!user){
         // signup
         await User.create({
-          clerkId: Id,
-          fullName: '${firstname} ${lastname}',
-          imageUrl
+          clerkId: id,
+          fullName: '${firstName} ${lastName}',
+          imageUrl,
         });
       }
   
-      res.status(200).json({success:true})
+      res.status(200).json({ success:true });
     } catch (error) {
       console.log("Error in auth callback", error);
       next(error);
     }
-  }
+  };
